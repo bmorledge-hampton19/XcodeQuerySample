@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					FF115FE420883F0100638D7E = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = KG72MMSM55;
 						ProvisioningStyle = Automatic;
 					};
 					FF115FF820883F0100638D7E = {
@@ -414,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KG72MMSM55;
 				INFOPLIST_FILE = QuerySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BandI.QuerySample;
@@ -426,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KG72MMSM55;
 				INFOPLIST_FILE = QuerySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BandI.QuerySample;
@@ -507,6 +510,7 @@
 				FF11600F20883F0200638D7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF11601020883F0200638D7E /* Build configuration list for PBXNativeTarget "QuerySampleTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +519,7 @@
 				FF11601220883F0200638D7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF11601320883F0200638D7E /* Build configuration list for PBXNativeTarget "QuerySampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +528,7 @@
 				FF11601520883F0200638D7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
