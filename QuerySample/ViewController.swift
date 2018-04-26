@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    let alert = UIAlertController(title: "Success!", message: "None", preferredStyle: UIAlertControllerStyle.alert)
+    var message: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         nameTextField.delegate = self;
+    
+        alert.addAction(UIAlertAction(title: "Good!", style: .cancel, handler: nil))
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +30,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var FCTextField: UITextField!
     @IBOutlet weak var IDTextField: UITextField!
- 
+    
+    @IBAction func displayAlert(_ sender: UIButton) {
+        self.alert.message = message
+        self.present(self.alert, animated: true, completion: nil)
+    }
     
     @IBAction func go(_ sender: UIButton) {
         
@@ -74,12 +83,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 do {
+                
+                    self.message = "The food item : " + foodName! + " was successfully added to the database!"
+                    
                     print("Trying to do something with the results...")
-                    //create json object from data
-                    if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                        print(json)
-                        // handle json...
-                    }
                     
                 } catch let error {
                     print(error.localizedDescription)
@@ -87,8 +94,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     print(data);
                 }
             })
+            
             task.resume()
-    
+            
         } else {
             
             print("attempting to retrieve...")
@@ -139,6 +147,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             return
                         }
                         
+                        self.message = ""
+                        
                         for i in 0..<recipes.count {
                             
                             let RID:Int = (recipes[i]["ID"] as! NSString).integerValue
@@ -148,6 +158,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             print("ID: ", RID as Any)
                             print("Name: ", Name as Any)
                             print("")
+                            
+                            self.message += "Entry \(i) :\n"
+                            self.message += "ID: \(RID)\n"
+                            self.message += "Food: " + Name + "\n\n"
                             
                         }
                         
@@ -159,6 +173,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         print(data);
                     }
             })
+            
+            
             task.resume()
             
         }
