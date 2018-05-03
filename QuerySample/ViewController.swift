@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    let alert = UIAlertController(title: "Success!", message: "None", preferredStyle: UIAlertControllerStyle.alert)
-    var message: String = ""
+    let alert = UIAlertController(title: "Success!", message: "No actions have been performed yet.", preferredStyle: UIAlertControllerStyle.alert)
+    var message: String = "No actions have been performed yet."
     
     override func viewDidLoad() {
         super.viewDidLoad();
         nameTextField.delegate = self;
+        FCTextField.delegate = self;
+        IDTextField.delegate = self;
     
         alert.addAction(UIAlertAction(title: "Good!", style: .cancel, handler: nil))
     }
@@ -25,6 +27,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    
     @IBOutlet weak var addOrRemove: UISegmentedControl!
     
     @IBOutlet weak var nameTextField: UITextField!
